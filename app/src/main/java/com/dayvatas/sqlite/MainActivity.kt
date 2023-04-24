@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
             //veriyi çekmek için bir imleç yani bir cursor ile çalışmalıyım
             val cursor = myDatabase.rawQuery("SELECT * FROM musicians", null)
             //myDatabase.execSQL("UPDATE musicians SET age=61 WHERE name='Lars'") //Lars'ın yaşını update ettim
+            myDatabase.execSQL("DELETE FROM musicians WHERE name ='Lars'") //İsmi Lars olan verileri silmek
             //ismin ve yaşın hangi indexlerde kayıtlı olduğunu arıyorum
             val nameIx = cursor.getColumnIndex("name")
             val ageIx = cursor.getColumnIndex("age")
