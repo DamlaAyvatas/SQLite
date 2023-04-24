@@ -15,10 +15,13 @@ class MainActivity : AppCompatActivity() {
             //myDatabase.execSQL("INSERT INTO musicians (name, age) VALUES ('James', 50)")  //veriyi kaydettiğim yer
             //myDatabase.execSQL("INSERT INTO musicians (name, age) VALUES ('Lars', 60)")
             //myDatabase.execSQL("INSERT INTO musicians (name, age) VALUES ('Kirk', 55)")
-            val cursor = myDatabase.rawQuery("SELECT * FROM musicians WHERE name = 'James'", null)  //İsme göre filtreleme
+            //val cursor = myDatabase.rawQuery("SELECT * FROM musicians WHERE name= 'James' ", null)  //İsme göre filtreleme
+            //val cursor = myDatabase.rawQuery("SELECT * FROM musicians WHERE name LIKE '%s' ", null)  //Sonu s ile biten isimleri filtreleme
+            //val cursor = myDatabase.rawQuery("SELECT * FROM musicians WHERE name LIKE 'K%' ", null)  //K ile başlayan isimleri filtreleme
 
             //veriyi çekmek için bir imleç yani bir cursor ile çalışmalıyım
-            //val cursor = myDatabase.rawQuery("SELECT * FROM musicians", null)
+            val cursor = myDatabase.rawQuery("SELECT * FROM musicians", null)
+            //myDatabase.execSQL("UPDATE musicians SET age=61 WHERE name='Lars'") //Lars'ın yaşını update ettim
             //ismin ve yaşın hangi indexlerde kayıtlı olduğunu arıyorum
             val nameIx = cursor.getColumnIndex("name")
             val ageIx = cursor.getColumnIndex("age")
